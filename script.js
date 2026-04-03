@@ -264,11 +264,13 @@ if (mobileBtn && mobileMenu) {
         if (menuOpen) {
             mobileMenu.classList.remove('hidden');
             mobileMenu.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
             // Change icon to 'X'
             mobileBtn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
         } else {
             mobileMenu.classList.add('hidden');
             mobileMenu.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
             // Change icon back to hamburger
             mobileBtn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>';
         }
@@ -280,6 +282,7 @@ if (mobileBtn && mobileMenu) {
             menuOpen = false;
             mobileMenu.classList.add('hidden');
             mobileMenu.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
             mobileBtn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>';
         });
     });
