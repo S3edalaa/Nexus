@@ -254,6 +254,37 @@ function applyLanguage() {
 
 applyLanguage();
 
+const mobileBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+let menuOpen = false;
+
+if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => {
+        menuOpen = !menuOpen;
+        if (menuOpen) {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            // Change icon to 'X'
+            mobileBtn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
+        } else {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            // Change icon back to hamburger
+            mobileBtn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>';
+        }
+    });
+
+    // Close menu when clicking a link inside it
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuOpen = false;
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            mobileBtn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>';
+        });
+    });
+}
+
 const observerOpts = { threshold: 0.1 };
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
