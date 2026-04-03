@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company | Nexus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'], arabic: ['Tajawal', 'sans-serif'] }, boxShadow: { 'soft': '0 20px 40px -15px rgba(0,0,0,0.05)' } } } }
+    </script>
+    <style>
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .fade-in.show { opacity: 1; transform: translateY(0); }
+        .dash-border { border: 1px solid rgba(226, 232, 240, 1); }
+        .dark .dash-border { border: 1px solid rgba(51, 65, 85, 1); }
+        .blob-bg { position: absolute; filter: blur(80px); z-index: -1; opacity: 0.5; border-radius: 50%; }
+        .dark .blob-bg { opacity: 0.15; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 font-sans transition-colors duration-300 antialiased selection:bg-blue-600 selection:text-white relative overflow-x-hidden">
+
+    <div class="blob-bg bg-blue-400 w-[500px] h-[500px] top-[10%] left-[-10%]"></div>
+    <div class="blob-bg bg-purple-400 w-[400px] h-[400px] bottom-[10%] right-[-5%]"></div>
+
+    <nav class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="text-xl font-bold tracking-tight flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    Nexus
+                </a>
+                <div class="hidden md:flex gap-8 items-center text-sm font-semibold text-slate-600 dark:text-slate-300">
+                    <a href="index.html" class="hover:text-blue-600 transition-colors" data-i18n="nav_home"></a>
+                    <a href="about.html" class="hover:text-blue-600 transition-colors text-blue-600" data-i18n="nav_about"></a>
+                    <a href="services.html" class="hover:text-blue-600 transition-colors" data-i18n="nav_services"></a>
+                    <a href="contact.html" class="hover:text-blue-600 transition-colors" data-i18n="nav_contact"></a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="lang-toggle" class="text-xs font-bold px-3 py-1.5 rounded-md bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" data-i18n="lang_btn"></button>
+                    <button id="theme-toggle" class="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg></button>
+                    <a href="contact.html" class="hidden md:inline-flex px-5 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-sm rounded-lg hover:bg-blue-600 dark:hover:bg-blue-600 dark:hover:text-white transition-colors shadow-lg shadow-slate-200 dark:shadow-none" data-i18n="nav_cta"></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-48 pb-24 max-w-4xl mx-auto px-6 text-center fade-in">
+        <span class="inline-block px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-widest uppercase rounded-md mb-8" data-i18n="about_badge"></span>
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 text-slate-900 dark:text-white" data-i18n="about_main_title"></h1>
+        <p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-medium" data-i18n="about_intro"></p>
+    </header>
+
+    <section class="py-24 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="bg-white dark:bg-slate-800 p-12 rounded-[2rem] dash-border shadow-soft fade-in hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 text-red-600 rounded-xl flex items-center justify-center mb-8">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            </div>
+            <h2 class="text-3xl font-bold mb-6" data-i18n="mission_title"></h2>
+            <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed" data-i18n="mission_desc"></p>
+        </div>
+        <div class="bg-white dark:bg-slate-800 p-12 rounded-[2rem] dash-border shadow-soft fade-in hover:shadow-xl transition-shadow" style="transition-delay: 150ms;">
+            <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-xl flex items-center justify-center mb-8">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h2 class="text-3xl font-bold mb-6" data-i18n="vision_title"></h2>
+            <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed" data-i18n="vision_desc"></p>
+        </div>
+    </section>
+
+    <!-- Leadership -->
+    <section class="py-32 max-w-7xl mx-auto px-6 border-t border-slate-200 dark:border-slate-800">
+        <div class="text-center mb-24 fade-in">
+            <span class="text-sm font-bold tracking-widest text-blue-600 uppercase mb-4 block" data-i18n="team_sub"></span>
+            <h2 class="text-5xl font-extrabold tracking-tight" data-i18n="team_title"></h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl dash-border shadow-sm p-8 text-center fade-in hover:shadow-lg transition-all group">
+                <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-slate-50 dark:border-slate-700 relative">
+                    <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=400&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <h3 class="text-xl font-bold mb-1" data-i18n="t1_name"></h3>
+                <p class="text-blue-600 font-semibold text-sm mb-4" data-i18n="t1_role"></p>
+                <p class="text-slate-500 text-sm" data-i18n="t1_desc"></p>
+            </div>
+            
+            <div class="bg-white dark:bg-slate-800 rounded-2xl dash-border shadow-sm p-8 text-center fade-in hover:shadow-lg transition-all group" style="transition-delay: 100ms;">
+                <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-slate-50 dark:border-slate-700 relative">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <h3 class="text-xl font-bold mb-1" data-i18n="t2_name"></h3>
+                <p class="text-indigo-600 font-semibold text-sm mb-4" data-i18n="t2_role"></p>
+                <p class="text-slate-500 text-sm" data-i18n="t2_desc"></p>
+            </div>
+
+            <div class="bg-white dark:bg-slate-800 rounded-2xl dash-border shadow-sm p-8 text-center fade-in hover:shadow-lg transition-all group" style="transition-delay: 200ms;">
+                <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-slate-50 dark:border-slate-700 relative">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <h3 class="text-xl font-bold mb-1" data-i18n="t3_name"></h3>
+                <p class="text-purple-600 font-semibold text-sm mb-4" data-i18n="t3_role"></p>
+                <p class="text-slate-500 text-sm" data-i18n="t3_desc"></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="pt-24 pb-12 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800"><div class="max-w-7xl mx-auto px-6"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16"><div class="lg:col-span-2"><a href="#" class="text-xl font-bold tracking-tight flex items-center gap-2 mb-6"><div class="w-6 h-6 rounded bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center"><svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg></div>Nexus</a><p class="text-slate-500 dark:text-slate-400 leading-relaxed pr-8" data-i18n="footer_desc"></p></div><div><h4 class="font-semibold text-slate-900 dark:text-white mb-6" data-i18n="footer_company"></h4><ul class="space-y-3 text-slate-500 dark:text-slate-400 font-medium"><li><a href="about.html" class="hover:text-blue-600 transition-colors" data-i18n="nav_about"></a></li><li><a href="contact.html" class="hover:text-blue-600 transition-colors" data-i18n="nav_contact"></a></li></ul></div><div><h4 class="font-semibold text-slate-900 dark:text-white mb-6" data-i18n="footer_expertise"></h4><ul class="space-y-3 text-slate-500 dark:text-slate-400 font-medium"><li><a href="services.html" class="hover:text-blue-600 transition-colors" data-i18n="nav_services"></a></li></ul></div><div><h4 class="font-semibold text-slate-900 dark:text-white mb-6" data-i18n="footer_insights"></h4><p class="text-slate-500 dark:text-slate-400 text-sm mb-4" data-i18n="footer_insights_desc"></p><form class="flex" onsubmit="event.preventDefault();"><input type="email" placeholder="Email address" class="w-full bg-slate-50 dark:bg-slate-800 border-y border-l border-slate-200 dark:border-slate-700 px-3 py-2 rounded-l-lg outline-none text-sm focus:border-blue-600 transition-colors"><button class="bg-blue-600 dark:bg-blue-600 border-y border-r border-blue-600 text-white px-3 py-2 outline-none text-sm rounded-r-lg hover:bg-blue-700 transition-colors">Go</button></form></div></div><div class="border-t border-slate-200 dark:border-slate-800 pt-8 text-sm font-medium text-slate-400 text-center"><p data-i18n="footer_rights"></p></div></div></footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
